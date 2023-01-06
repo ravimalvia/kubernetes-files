@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+    matchExpressions: 
+     - {key: dc, operator: In, values: [ india ]}
+     - {key: region, operator: In, values: [ mumbai ]}
+  template:
+    metadata:
+      name: mypods
+      labels: 
+        dc: india
+        region: mumbai
+        app: web
+    spec:
+      containers:
+      - name: phppod
+        image: mysql
+        env: 
+        - name: MYSQL_ROOT_PASSWORD
+          value: redhat
+ 

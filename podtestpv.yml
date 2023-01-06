@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest
+  labels: 
+    dc: IN
+spec: 
+  volumes: 
+  - name: pvc-to-claim
+    persistentVolumeClaim:
+      claimName: pvcbyravi
+  containers:
+  - name: pvcbindpod
+    image: httpd
+    volumeMounts: 
+    - mountPath: /var/www/data
+      name: pvc-to-claim

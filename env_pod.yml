@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envpd
+spec:
+  containers:
+  - name: newpod
+    image: vimal13/apache-webserver-php
+    env:
+    - name: x
+      value: '5'

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mypod7
+  labels:
+    "continent": "India"
+    "Langauge": "Hindi"
+
+spec: 
+  containers: 
+    - name: "myd1"
+      image: httpd

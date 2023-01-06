@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rcpods
+  
+spec:
+  replicas: 3
+  selector: 
+    site: social
+
+  template: 
+    metadata:
+      name: threepods
+      labels:
+        site: social
+        city: jaipur
+    spec:     
+      containers:
+      - name: mypod
+        image: vimal13/apache-webserver-php
+  
+
